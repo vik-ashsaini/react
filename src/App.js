@@ -1,8 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 
+let name ="Vikash";
+
 function App() {
   return (
+    <>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -15,10 +26,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React with Viikash
+          Learn React with {name}
         </a>
       </header>
     </div>
+    </>    
   );
 }
 
