@@ -9,6 +9,14 @@ export default function Form(props){
         setText(event.target.value);
     }
 
+    const clickClearBtn = () =>{
+        setText('');
+    }
+    
+    const clickNormalizeBtn = () =>{
+        setText(text.normalize());
+    }
+
     const clickUpperBtn = (event) =>{
         setText(text.toUpperCase());       
     }
@@ -27,6 +35,9 @@ export default function Form(props){
                 </div>
                 <button className='btn btn-primary mx-2' onClick={clickUpperBtn}>Convert to UpperCase</button>
                 <button className='btn btn-primary mx-2' onClick={clickLowerBtn}>Convert to LowerCase</button>
+                <button className='btn btn-primary mx-2' onClick={clickClearBtn}>Clear Text</button>
+                <button className='btn btn-primary mx-2' onClick={clickNormalizeBtn}>Convert to Normalize Text</button>
+                
             </div>
             <div className='container my-2'>
                 <h2>Your Text Summary</h2>
