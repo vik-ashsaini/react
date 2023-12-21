@@ -11,7 +11,7 @@ function App() {
       {/* <Navbar title="TextUtils"   /> */}
       {/* <Navbar  /> */}
       <div className='container my-3'>
-        <Form heading="Uppercase Converter" />
+        <Form heading="Enter the text  to Analyse below" />
       </div>
     </>    
   );
