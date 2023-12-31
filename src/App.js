@@ -5,6 +5,7 @@ import Form from './componenets/Form'
 import About from './componenets/About';
 import Alert from './componenets/Alert'
 import { useState } from 'react';
+import { BrowserRouter as Router,Route,Link, Routes } from 'react-router-dom';
 
 function App() {
   const [mode ,setMode] = useState('light');
@@ -34,16 +35,17 @@ function App() {
     }
   }
   return (
-    <>
+    <Router>
       <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} about="About Us" />
       <Alert alert={alert} />
-      {/* <Navbar title="TextUtils"   /> */}
-      {/* <Navbar  /> */}
       <div className='container my-3'>
-        <Form showAlert={showAlert} mode={mode} heading="Enter the text  to Analyse below" />
+        <Routes>
+          <Route exact path='/about' element={<About />} />
+          <Route exact path='/' element={<Form showAlert={showAlert} mode={mode} heading="Enter the text  to Analyse below" />}>
+          </Route>
+        </Routes>
       </div>
-      {/* <About /> */}
-    </>    
+    </Router>    
   );
 }
 
