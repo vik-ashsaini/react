@@ -36,12 +36,12 @@ function App() {
   }
   return (
     <Router>
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} about="About Us" />
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} aboutText='About Us' key={new Date()} />
       <Alert alert={alert} />
       <div className='container my-3'>
         <Routes>
-          <Route exact path='/about' element={<About />} />
-          <Route exact path='/' element={<Form showAlert={showAlert} mode={mode} heading="Enter the text  to Analyse below" />}>
+          <Route exact path='/about' mode={mode} element={<About />} />
+          <Route exact path='/' element={<Form showAlert={showAlert} mode={mode} heading="Word | Character Counter, Remove Extra Spaces" />}>
           </Route>
         </Routes>
       </div>

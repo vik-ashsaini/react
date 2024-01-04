@@ -28,9 +28,7 @@ export default function Form(props){
     }
 
     const clickCopyBtn = () =>{
-        var t = document.getElementById('textArea');
-        t.select()
-        navigator.clipboard.writeText(t.value);
+        navigator.clipboard.writeText(text);
         props.showAlert("Text Copied to CilpBoard!","success");
     }
 
@@ -48,18 +46,18 @@ export default function Form(props){
                     <textarea className="form-control" id="textArea" placeholder='Enter Text here' onChange={handleOnClick} 
                     value={text} rows="5" style={{backgroundColor:props.mode==='dark'?'grey':'white',color:props.mode==='dark'?'white':'black'}}></textarea>
                 </div>
-                <button className='btn btn-primary mx-2' onClick={clickUpperBtn}>Convert to UpperCase</button>
-                <button className='btn btn-primary mx-2' onClick={clickLowerBtn}>Convert to LowerCase</button>
-                <button className='btn btn-primary mx-2' onClick={clickClearBtn}>Clear Text</button>
-                <button className='btn btn-primary mx-2' onClick={clickCopyBtn}>Copy Text</button>
-                <button className='btn btn-primary mx-2' onClick={clickRemoveSpaceBtn}>Remove Extra Spaces</button>
-                <button className='btn btn-primary mx-2' onClick={clickNormalizeBtn}>Convert to Normalize Text</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={clickUpperBtn}>Convert to UpperCase</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={clickLowerBtn}>Convert to LowerCase</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={clickClearBtn}>Clear Text</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={clickCopyBtn}>Copy Text</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={clickRemoveSpaceBtn}>Remove Extra Spaces</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={clickNormalizeBtn}>Convert to Normalize Text</button>
                 
             </div>
             <div className='container my-2' style={{color:props.mode==='dark'?'white':'black'}}>
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ").length} Words and {text.length} Character</p>
-                <p>{0.008 * text.split(" ").length} Minutes reqiured to read this text</p>
+                <p>{text.split(/\s+/).filter((e)=>{return e.length!==0}).length} Words and {text.length} Character</p>
+                <p>{0.008 * text.split(/\s+/).filter((e)=>{return e.length!==0}).length} Minutes reqiured to read this text</p>
                 <h2>Preview</h2>
                 <p>{text.length>0?text:'Enter text to Preview Here'}</p>
             </div>
